@@ -35,3 +35,6 @@ if [ -n "$bashSource" ]; then
 fi
 
 "${dir}/sail" "$@"
+
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+
