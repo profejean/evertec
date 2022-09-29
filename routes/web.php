@@ -19,4 +19,6 @@ Route::middleware(['userLogin'])->group(function () {
     /* This modules show products */
     Route::get('home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
+    Route::get('order', [App\Http\Controllers\OrderController::class, 'order'])->name('order');
+
 });
