@@ -17,8 +17,12 @@ Route::post('register', [App\Http\Controllers\UserController::class, 'register']
 Route::middleware(['userLogin'])->group(function () {
 
     /* This modules show products */
-    Route::get('home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+        Route::get('home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
-    Route::get('order', [App\Http\Controllers\OrderController::class, 'order'])->name('order');
+    /* This modules orders */
+        Route::get('orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders');
+        Route::post('order/{id}', [App\Http\Controllers\OrderController::class, 'order'])->name('order');
+        Route::get('checkout/{id}', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');   
+        Route::post('order_rejected/{id}', [App\Http\Controllers\OrderController::class, 'delete'])->name('order_rejected');       
 
 });
