@@ -31,7 +31,7 @@ class UserController extends Controller
 
         /* Don't have permissions */
         return back()->withErrors([
-            'email' => 'Los datos enviados no se reconocen en el sistema.',
+            'email' => 'The sent data is not recognized in the system.',
         ]);
     }
 
@@ -48,7 +48,7 @@ class UserController extends Controller
             $user = new User();
             $user->name = $credentials['name'];
             $user->email = $credentials['email'];
-            $user->rol = 'cliente';
+            $user->rol = 'client';
             $user->password = bcrypt($credentials['password']);
             $user->save();
 
@@ -63,7 +63,7 @@ class UserController extends Controller
             }         
 
 
-        return redirect()->back()->withErrors('email', 'Hubo un problema con su registro');
+        return redirect()->back()->withErrors('email', 'There was a problem with your registration');
         
     }
 
