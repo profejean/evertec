@@ -54,7 +54,7 @@
             <div class="col-2 text-center">
 
                 @if($o->status == 'CREATED')
-                <button>Confirmar pago</button>
+                <a href="{{route('checkout', $o->id)}}" class="btn btn-primary">Confirmar pago</a>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rejected-{{$o->id}}">
                     Rechazar
                 </button>
