@@ -23,6 +23,7 @@ Route::middleware(['userLogin'])->group(function () {
         Route::get('orders', [App\Http\Controllers\OrderController::class, 'index'])->name('orders');
         Route::post('order/{id}', [App\Http\Controllers\OrderController::class, 'order'])->name('order');
         Route::get('checkout/{id}', [App\Http\Controllers\OrderController::class, 'checkout'])->name('checkout');   
-        Route::post('order_rejected/{id}', [App\Http\Controllers\OrderController::class, 'delete'])->name('order_rejected');       
+        Route::post('order_rejected/{id}', [App\Http\Controllers\OrderController::class, 'delete'])->name('order_rejected');   
+        Route::get('payment/{id}', [App\Http\Controllers\OrderController::class, 'payment'])->name('payment');    
 
 });

@@ -15,6 +15,12 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+
+    /* CREDENTIAL FOR PLAYTOPAY */
+
+    'placetopay_login' => env('PLACETOPAY_LOGIN', ''),
+    'placetopay_key' => env('PLACETOPAY_KEY', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Product;
+use App\Traits\WebCheckout;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 use Carbon\Carbon;
 
+
 class OrderController extends Controller
 {
+    use WebCheckout;
+
     public function index(){
         $orders = Order::orderBy('status','asc')->get();
 
@@ -57,6 +61,10 @@ class OrderController extends Controller
     public function checkout($id){ 
         $order = Order::where('id',$id)->first(); 
         return view('checkout', compact('order'));
+    }
+
+    public function payment($id){ 
+        return $this->createRequest();
     }
 
     public function delete($id){

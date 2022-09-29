@@ -37,7 +37,9 @@
         @foreach($orders as $o)
         <div class="row mt-3">
             <div class="col-2">
-                <h4 class="text-center">{{product_name($o->product_id)}}</h4>
+                <!-- this use helpers products -->
+                <h4 class="text-center">
+                    {{product_name($o->product_id)}}</h4>
             </div>
             <div class="col-2">
                 <h4 class="text-center">{{$o->customer_name}}</h4>

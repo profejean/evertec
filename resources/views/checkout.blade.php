@@ -18,16 +18,18 @@
                 Mobile: {{$order->customer_mobile}}
             </h5>
              <h5 class="text-center mt-3">
+                <!-- this use helpers products -->
                 Product: {{product_name($order->product_id)}}
             </h5>
             <h5 class="text-center mt-3">
+                <!-- this use helpers products -->
                 Price: {{product_price($order->product_id)}}
             </h5>
 
             
         </div>
         <div class="col-12 text-center">
-            <a href="" class="btn btn-primary mt-3  ">
+            <a href="{{route('payment', $order->id)}}" class="btn btn-primary mt-3  ">
                 Confirm the purchase
             </a>
         </div>
