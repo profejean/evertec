@@ -12,6 +12,7 @@
         @include('process') 
      
     <div>
+        @include('navbar')
         @yield('content')    
     </div>
     
