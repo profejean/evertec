@@ -1,6 +1,6 @@
 <div class="modal fade" id="buy-{{$p->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
-    <form class="col text-center" method="post" action="{{route('order')}}">
+    <form class="col text-center" method="post" action="{{route('order', $p->id)}}">
 
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
