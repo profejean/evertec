@@ -36,6 +36,7 @@
         </div>  
      
     <div>
+        @include('navbar')
         @yield('content')    
     </div>
     
