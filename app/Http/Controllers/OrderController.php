@@ -39,7 +39,7 @@ class OrderController extends Controller
 
             $orderLast = Order::latest()->first()->id;
 
-            return Redirect::route('checkout', $orderLast)->with('success', 'Se ha creado una orden con exito'); 
+            return Redirect::route('checkout', $orderLast)->with('success', 'An order has been created successfully'); 
             
   
             
@@ -56,6 +56,6 @@ class OrderController extends Controller
         $order->save();
         $order->delete();
 
-        return Redirect::back()->with('success','Has rechazado la orden correctamente');
+        return Redirect::back()->with('success','You have successfully declined the order');
     }
 }

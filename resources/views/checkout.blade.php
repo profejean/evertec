@@ -6,31 +6,34 @@
     <div class="row">
         <div class="col-12">
             <h3 class="text-center mt-3">
-                Gracias por su compra, por favor confirme los datos
+                Thank you for your purchase, please confirm him data
             </h3>
             <h5 class="text-center mt-3">
-                Nombre: {{$order->customer_name}}
+                Name: {{$order->customer_name}}
             </h5>
             <h5 class="text-center mt-3">
-                Correo: {{$order->customer_email}}
+                Email: {{$order->customer_email}}
             </h5>
             <h5 class="text-center mt-3">
-                Teléfono: {{$order->customer_mobile}}
+                Mobile: {{$order->customer_mobile}}
             </h5>
              <h5 class="text-center mt-3">
-                Producto: {{product_name($order->product_id)}}
+                Product: {{product_name($order->product_id)}}
+            </h5>
+            <h5 class="text-center mt-3">
+                Price: {{product_price($order->product_id)}}
             </h5>
 
             
         </div>
         <div class="col-12 text-center">
             <a href="" class="btn btn-primary mt-3  ">
-                Confirmar compra
+                Confirm the purchase
             </a>
         </div>
          <div class="col-12 text-center">
             <a href="{{route('orders')}}" class="btn btn-primary mt-3  ">
-                Ver historial de ordenes
+               View order history
             </a>
         </div>
     </div>

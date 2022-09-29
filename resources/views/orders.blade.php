@@ -5,32 +5,32 @@
         <div class="row mt-5 bg-primary p-4 shadow-lg p-3 mb-5 rounded">
             <div class="col-2">
                 <h4 class="text-center text-white">
-                    Nombre del producto
+                    Name of product
                 </h4>
             </div>
             <div class="col-2">
                 <h4 class="text-center text-white">
-                    Nombre del cliente
+                    Name
                 </h4>
             </div>
             <div class="col-2">
                 <h4 class="text-center text-white">
-                    Email del cliente
+                    Email 
                 </h4>
             </div>
             <div class="col-2">
                 <h4 class="text-center text-white">
-                    Teléfono del cliente
+                    Mobile 
                 </h4>
             </div>
             <div class="col-2">
                 <h4 class="text-center text-white">
-                    Estado de la orden
+                    Status
                 </h4>
             </div>
             <div class="col-2">
                 <h4 class="text-center text-white">
-                    Opciones
+                    Options
                 </h4>
             </div>
         </div>
@@ -54,9 +54,9 @@
             <div class="col-2 text-center">
 
                 @if($o->status == 'CREATED')
-                <a href="{{route('checkout', $o->id)}}" class="btn btn-primary">Confirmar pago</a>
+                <a href="{{route('checkout', $o->id)}}" class="btn btn-primary">Confirm Purcharse</a>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rejected-{{$o->id}}">
-                    Rechazar
+                    Rejected
                 </button>
                 @endif            
                
