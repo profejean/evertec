@@ -13,7 +13,10 @@ class OrderController extends Controller
 {
     public function index(){
         $orders = Order::orderBy('status','asc')->get();
+
+        /* this product rejected */
         $trash = Order::onlyTrashed()->get();
+
         return view('orders', compact('orders','trash'));
     }
 
@@ -25,24 +28,30 @@ class OrderController extends Controller
             'customer_mobile' => ['required','numeric'],
         ]);
 
-   
+        try {
+            DB::beginTransaction();  
+        
 
-
-            $date = Carbon::now('America/Caracas');
-         
-            $orders = new Order();
-            $orders->status = 'CREATED';
-            $orders->product_id = $id;
-            $orders->created_at	 = $date->toDateTimeString();
-            $orders->updated_at = $date->toDateTimeString();
-            $orders->fill($order)->save();
-
-            $orderLast = Order::latest()->first()->id;
-
-            return Redirect::route('checkout', $orderLast)->with('success', 'An order has been created successfully'); 
+                $date = Carbon::now('America/Caracas');
             
-  
-            
+                $orders = new Order();
+                $orders->status = 'CREATED';
+                $orders->product_id = $id;
+                $orders->created_at	 = $date->toDateTimeString();
+                $orders->updated_at = $date->toDateTimeString();
+                $orders->fill($order)->save();                              
+
+               DB::commit();
+
+        } catch (\Exception $e) {       
+
+            return Redirect::back()->with('error','The process has failed, please contact technical support');
+
+        }
+
+        $orderLast = Order::latest()->first()->id; 
+
+        return Redirect::route('checkout', $orderLast)->with('success', 'An order has been created successfully');      
     }
 
     public function checkout($id){ 
