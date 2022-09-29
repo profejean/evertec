@@ -13,7 +13,8 @@ class OrderController extends Controller
 {
     public function index(){
         $orders = Order::orderBy('status','asc')->get();
-        return view('orders', compact('orders'));
+        $trash = Order::onlyTrashed()->get();
+        return view('orders', compact('orders','trash'));
     }
 
     public function order(Request $request, $id){
@@ -51,6 +52,8 @@ class OrderController extends Controller
 
     public function delete($id){
         $order = Order::where('id',$id)->first();
+        $order->status = 'REJECTED';
+        $order->save();
         $order->delete();
 
         return Redirect::back()->with('success','Has rechazado la orden correctamente');
