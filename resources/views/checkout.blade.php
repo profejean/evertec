@@ -29,7 +29,7 @@
             
         </div>
         <div class="col-12 text-center">
-            <a href="{{route('payment', $order->id)}}" class="btn btn-primary mt-3  ">
+            <a target="_blank" href="{{route('payment', $order->id)}}" class="btn btn-primary mt-3  ">
                 Confirm the purchase
             </a>
         </div>

@@ -20,6 +20,7 @@ return [
 
     'placetopay_login' => env('PLACETOPAY_LOGIN', ''),
     'placetopay_key' => env('PLACETOPAY_KEY', ''),
+    'placetopay_url' => env('PLACETOPAY_URL', ''),
 
     /*
     |--------------------------------------------------------------------------
