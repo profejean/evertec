@@ -10,14 +10,13 @@ use App\Models\User;
 class UserTest extends TestCase
 {
 
-    use RefreshDatabase;
+
     use RefreshDatabase, WithFaker;
     /**
      * A basic feature test example.
      *
      * @return void
      */ 
-
     public function test_it_visit_page_of_welcome()
     {
         $response = $this->get('/');
