@@ -64,7 +64,8 @@ class OrderController extends Controller
     }
 
     public function payment($id){ 
-        return $this->createRequest();
+        $order = Order::where('id',$id)->first();
+        return $this->createRequest($order);
     }
 
     public function delete($id){
